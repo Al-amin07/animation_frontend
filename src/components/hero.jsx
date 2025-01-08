@@ -49,7 +49,7 @@ export default function Hero() {
               border="0"
               bg="#545CFF"
               color="white"
-              text={"Case Studies"}
+              text={"Case Studies Two"}
             ></NormalButton>
           </div>
         </motion.div>
