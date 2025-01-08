@@ -1,0 +1,143 @@
+.button-container,
+.normal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated-button {
+  position: relative;
+  padding: 7px 20px;
+  color: black;
+  border: 1px solid #4a53f9;
+  border-radius: 25px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.normal-button {
+  position: relative;
+
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.circle-button {
+  position: relative;
+  padding: 10px 10px;
+  color: black;
+  border: 1px solid #4a53f9;
+  border-radius: 25px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button-text {
+  display: inline-block;
+
+  position: relative;
+}
+.circle-text {
+  /* display: inline-block; */
+  color: #282828;
+  font-size: 16px;
+
+  font-weight: 700;
+  position: relative;
+}
+
+.normal-text {
+  font-size: 18px;
+  position: relative;
+}
+
+.text-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.text {
+  position: relative;
+}
+
+.animated-button:hover .button-text,
+.normal-button:hover .button-text,
+.circle-button:hover .circle-text,
+.text-container:hover .text {
+  animation: moveUpAndDown 0.5s ease-in-out;
+}
+
+@keyframes moveUpAndDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(36, 35, 35, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.7s ease-out;
+}
+
+.modal-content {
+  animation: slideDown 0.6s ease-out;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
