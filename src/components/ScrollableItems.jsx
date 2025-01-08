@@ -42,7 +42,7 @@ function HorizontalScroll() {
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-1/2 -translate-y-1/2 h-[500px] flex items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-8 pl-4">
+        <motion.div style={{ x }} className="flex gap-8">
           <FirstCard />
           {works?.map((el, ind) => (
             <Card key={el?._id} ind={ind} work={el} />
@@ -106,7 +106,7 @@ function Card({ work, ind }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-          <h3 className="text-4xl font-bold mb-4 transition-transform duration-500 ease-out group-hover:translate-y-[-5px]">
+          <h3 className="text-3xl font-medium mb-4 transition-transform duration-500 ease-out group-hover:translate-y-[-5px]">
             {work?.title}
           </h3>
           <div className="flex gap-3 flex-wrap">
