@@ -51,8 +51,8 @@ function HorizontalScroll() {
           <div className="pl-24">
             <FirstCard />
           </div>
-          {works?.map((el, ind) => (
-            <Card key={el?._id} index={ind} work={el} />
+          {works?.map((el, index) => (
+            <Card key={el?._id} index={index} work={el} />
           ))}
           <LastCard />
         </motion.div>
