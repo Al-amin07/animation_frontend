@@ -29,10 +29,14 @@ function HorizontalScroll() {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    // offset: ["start center", "end center"],
+    offset: ["start start", "end start"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.9, 1],
+    ["0%", "0%", "-95%", "-95%"]
+  );
 
   if (isLoading)
     return (
@@ -45,9 +49,14 @@ function HorizontalScroll() {
     <section ref={targetRef} className="relative h-[300vh]">
       <div
         ref={containerRef}
-        className="sticky top-1/2 -translate-y-1/2 h-[500px] flex items-center overflow-hidden"
+        className="sticky top-0 h-screen flex items-center overflow-hidden"
       >
-        <motion.div style={{ x }} className="flex gap-8">
+        <motion.div
+          style={{ x }}
+          className="flex gap-8"
+          initial={{ x: "0%" }}
+          transition={{ ease: [0.32, 0.23, 0, 1] }}
+        >
           <div className="pl-24">
             <FirstCard />
           </div>
@@ -95,15 +104,19 @@ function LastCard() {
 
 function Card({ work, index }) {
   return (
-    <div className="relative  w-[550px] h-[500px] overflow-hidden rounded-3xl hover:scale-95  transition-all duration-500">
-      <Image
-        src={work?.image}
-        alt={work?.title || "Work showcase"}
-        fill
-        className="object-cover rounded-3xl "
-        sizes="(max-width: 550px) 100vw, 550px"
-        priority={true}
-      />
+    <div className="relative w-[550px] h-[500px] overflow-hidden rounded-3xl hover:scale-95 transition-all duration-500">
+      {work?.image && (
+        <Image
+          src={work.image}
+          alt={work?.title || "Work showcase"}
+          fill
+          className="object-cover rounded-3xl"
+          sizes="(max-width: 550px) 100vw, 550px"
+          priority={index === 0}
+          quality={100}
+          loading={index === 0 ? "eager" : "lazy"}
+        />
+      )}
       {index === 0 && (
         <div className="absolute text-white font-medium top-6 right-6 bg-[#545CFF] py-2 px-6 rounded-full">
           Latest
@@ -124,6 +137,5 @@ function Card({ work, index }) {
         </div>
       </div>
     </div>
-    // <div className="w-[500px] h-[500px] bg-green-500"></div>
   );
 }
