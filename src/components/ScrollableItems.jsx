@@ -47,15 +47,7 @@ function HorizontalScroll() {
         ref={containerRef}
         className="sticky top-1/2 -translate-y-1/2 h-[500px] flex items-center overflow-hidden"
       >
-        <motion.div
-          style={{ x }}
-          className="flex gap-8"
-          initial={{ x: "0%" }}
-          transition={{
-            duration: 1,
-            ease: "easeInOut",
-          }}
-        >
+        <motion.div style={{ x }} className="flex gap-8">
           <div className="pl-24">
             <FirstCard />
           </div>
