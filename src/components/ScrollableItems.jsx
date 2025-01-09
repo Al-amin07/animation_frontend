@@ -60,8 +60,8 @@ function HorizontalScroll() {
           <div className="pl-24">
             <FirstCard />
           </div>
-          {works?.map((el, index) => (
-            <Card key={el?._id} index={index} work={el} />
+          {works?.map((el, ind) => (
+            <Card key={el?._id} ind={ind} work={el} />
           ))}
           <LastCard />
         </motion.div>
@@ -102,7 +102,7 @@ function LastCard() {
   );
 }
 
-function Card({ work, index }) {
+function Card({ work, ind }) {
   return (
     <div className="relative w-[550px] h-[500px] overflow-hidden rounded-3xl hover:scale-95 transition-all duration-500">
       {work?.image && (
@@ -112,12 +112,12 @@ function Card({ work, index }) {
           fill
           className="object-cover rounded-3xl"
           sizes="(max-width: 550px) 100vw, 550px"
-          priority={index === 0}
+          priority={ind === 0}
           quality={100}
-          loading={index === 0 ? "eager" : "lazy"}
+          loading={ind === 0 ? "eager" : "lazy"}
         />
       )}
-      {index === 0 && (
+      {ind === 0 && (
         <div className="absolute text-white font-medium top-6 right-6 bg-[#545CFF] py-2 px-6 rounded-full">
           Latest
         </div>
