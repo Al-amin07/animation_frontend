@@ -9,7 +9,7 @@ export default function Footer() {
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="max-w-7xl mx-auto px-8 py-16"
+      className="max-w-7xl mx-auto mt-16 px-8 py-16"
     >
       <div className="flex ">
         <div className="space-y-12 flex-1">

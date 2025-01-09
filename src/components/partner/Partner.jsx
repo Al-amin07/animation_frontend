@@ -1,10 +1,15 @@
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 export default function DigitalPartner() {
   return (
     <div className="max-w-7xl mx-auto px-8 py-16 md:py-24">
       <div className="grid md:grid-cols-2 gap-12 md:gap-24">
-        <div className="">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className=""
+        >
           <h1 className="text-5xl  md:text-6xl font-semibold">
             Your Digital Partner
           </h1>
@@ -39,9 +44,14 @@ export default function DigitalPartner() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* Right Side */}
-        <div className=" flex items-end">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className=" flex items-end"
+        >
           <div className=" bg-[#ECF1F4] rounded-3xl  px-8 py-16  ">
             <div className="grid py-6 grid-cols-2 gap-12 w-full">
               <div className="space-y-2 flex flex-col items-center">
@@ -58,7 +68,7 @@ export default function DigitalPartner() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

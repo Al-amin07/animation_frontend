@@ -53,9 +53,16 @@ export default function Skills() {
           {/* Right Column - Contact Card */}
           <div className="flex-1  flex items-end">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              // initial={{ opacity: 0, y: 40 }}
+              // whileInView={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.7 }}
+              initial={{ y: 0, opacity: 0 }}
+              whileInView={{ y: [-50, 0], opacity: 1 }}
+              transition={{
+                duration: 0.6,
+
+                ease: "easeInOut",
+              }}
               className="bg-[#545CFF] text-white   p-16 rounded-[32px] flex flex-col justify-between"
             >
               <h3 className="text-4xl font-semibold leading-tight mb-8">

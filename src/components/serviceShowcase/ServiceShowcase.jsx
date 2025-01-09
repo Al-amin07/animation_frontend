@@ -3,7 +3,23 @@ import Image from "next/image";
 // import Image from "../../../public/images.jpeg";
 import { motion } from "framer-motion";
 import { NormalButton } from "../toggle-button";
+import { useQuery } from "@tanstack/react-query";
 export default function ServicesShowcase() {
+  const { data: works, isLoading } = useQuery({
+    queryKey: ["works"],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/work`
+      );
+      return data.data;
+    },
+  });
+  if (isLoading)
+    return (
+      <div className="h-[300px] flex items-center justify-center">
+        <p>loading...</p>
+      </div>
+    );
   return (
     <div className="bg-black text-white min-h-screen px-16 pt-16 pb-28">
       <div className="max-w-7xl mx-auto">
@@ -25,14 +41,14 @@ export default function ServicesShowcase() {
               <div className="  flex gap-8 items-center justify-between  cursor-pointer">
                 <div className="">
                   <p className=" text-slate-500">Latest case study</p>
-                  <p className=" text-xl text-white font-medium">
-                    Alveena Casa
+                  <p className=" text-2xl text-white font-medium">
+                    {works[0]?.title}
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-800">
                     <Image
-                      src="/placeholder.svg?height=64&width=64"
+                      src={works[0]?.image}
                       alt="Alveena Casa icon"
                       width={64}
                       height={64}
@@ -57,14 +73,14 @@ export default function ServicesShowcase() {
               <div className="  flex gap-8 items-center justify-between  cursor-pointer">
                 <div className="">
                   <p className=" text-slate-500">Latest case study</p>
-                  <p className=" text-xl text-white font-medium">
-                    Alveena Casa
+                  <p className=" text-2xl text-white font-medium">
+                    {works[1]?.title}
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-800">
                     <Image
-                      src="/placeholder.svg?height=64&width=64"
+                      src={works[1]?.image}
                       alt="Alveena Casa icon"
                       width={64}
                       height={64}
@@ -89,14 +105,14 @@ export default function ServicesShowcase() {
               <div className="  flex gap-8 items-center justify-between  cursor-pointer">
                 <div className="">
                   <p className=" text-slate-500">Latest case study</p>
-                  <p className=" text-xl text-white font-medium">
-                    Alveena Casa
+                  <p className=" text-2xl text-white font-medium">
+                    {works[2]?.title}
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-800">
                     <Image
-                      src="/placeholder.svg?height=64&width=64"
+                      src={works[0]?.image}
                       alt="Alveena Casa icon"
                       width={64}
                       height={64}
@@ -121,14 +137,14 @@ export default function ServicesShowcase() {
               <div className="  flex gap-8 items-center justify-between  cursor-pointer">
                 <div className="">
                   <p className=" text-slate-500">Latest case study</p>
-                  <p className=" text-xl text-white font-medium">
-                    Alveena Casa
+                  <p className=" text-2xl text-white font-medium">
+                    {works[3]?.title}
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-800">
                     <Image
-                      src="/placeholder.svg?height=64&width=64"
+                      src={works[3]?.image}
                       alt="Alveena Casa icon"
                       width={64}
                       height={64}

@@ -37,7 +37,7 @@ export default function Home() {
             <Loader key="loader" />
           ) : (
             <div style={{ scrollBehavior: 'smooth' }} className='mb-24  '>
-              <div className='min-h-screen mb-72 bg-black'>
+              <div className='min-h-screen mb-16 bg-black'>
                 <motion.div
 
                   initial={{ x: '-100vw' }}
@@ -60,10 +60,10 @@ export default function Home() {
               <ServicesShowcase />
               <DigitalPartner />
               <Banner />
+              <Sponsour />
               <Experience />
               <Skills />
               <Feedback />
-              <Sponsour />
               <Footer />
             </div>
           )}
